@@ -29,3 +29,38 @@ document.getElementById('btn_wishes').addEventListener('click', function() {
    console.log('Номер елементу масиву - ', index);
     document.getElementById('p_wishes').innerText = arrayOfLoveWishes[index];
 });
+
+let countOfHearts = 5
+console.log('countOfHearts = ' + countOfHearts)
+
+document.getElementById('count_of_hearth').innerText = '❤️'.repeat(countOfHearts)
+
+// Опрацювання натискання на кнопку "Отримати побажання"
+document.getElementById('btn_buy_hearths').addEventListener('click', () => {
+
+    console.log('Button clicked')
+
+    let index = Math.floor(Math.random() * arrayOfLoveWishes.length)
+
+    //console.log('Номер елемента масиву = ', index);
+
+    document.getElementById('p_love_wishes').innerText = arrayOfLoveWishes[index];
+
+    countOfHearts--
+    console.log('count_of_hearths ' + count_of_hearths)
+    document.getElementById('count_of_hearth').innerText = '❤️'.repeat(countOfHearts) + '♡'.repeat(5 - countOfHearts)
+
+    if(countOfHearts == 0) {
+        document.getElementById('btn_love_wishes').style.display = 'none'
+    }
+})
+
+// Опрацювання натискання на кнопку "Купити ❤️"
+document.getElementById('btn_buy_hearths').addEventListener('click', () => {
+    countOfHearts = 5
+    document.getElementById('count_of_hearth').innerText = '❤️'.repeat(countOfHearts)
+    document.getElementById('btn_love_wishes').style.display = 'count_of_hearth'
+    document.getElementById('p_love_wishes').innerText = ''
+
+    console.log('btn-buy-hearts clicked')
+})
